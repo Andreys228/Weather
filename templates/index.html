@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            background-image: url('../static/colorstorm.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+        input[type="text"], button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+body {
+    position: relative;
+    padding: 20px;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    height: 40%;
+
+    border-radius: 12%;
+    box-sizing: border-box;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    background-color: Lavender;
+}
+input[type="text"] {
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    padding: 8px;
+}
+        #sun-image {
+            position: absolute;
+            top: 40%;
+            left: 36%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            opacity: 0.5;
+            width: 10%;
+            height: 17%;
+        }
+        #cloudy-image {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            opacity: 0.5;
+            width: 10%;
+            height: 17%;
+        }
+         #cloudy1-image {
+            position: absolute;
+            top: 40%;
+            left: 63%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            opacity: 0.5;
+            width: 10%;
+            height: 17%;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Погода в городе {{ city }}</h1>
+    <form action="/" method="post">
+        <label for="city">Введите название города:</label>
+        <input type="text" id="city" name="city">
+        <button type="submit">Узнать погоду</button>
+    </form>
+    {% if temperature %}
+    <p>Температура: {{ temperature }} °C</p>
+    <p>Описание: {{ description }}</p>
+    {% endif %}
+<img id="sun-image" src="../static/sun.png">
+<img id="cloudy-image" src="../static/cloudy.png">
+<img id="cloudy1-image" src="../static/cloudy1.png">
+</body>
+</html>
